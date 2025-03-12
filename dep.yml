@@ -10,7 +10,7 @@ metadata:
   name: my-express-app
   namespace: testing
 spec:
-  replicas: 2
+  replicas: 6
   selector:
     matchLabels:
       app: my-express-app
