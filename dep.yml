@@ -27,6 +27,11 @@ spec:
           env:
             - name: NODE_ENV
               value: "production"
+            - name: NAMEW  # This will be injected from the ConfigMap
+              valueFrom:
+                configMapKeyRef:
+                  name: my-config
+                  key: NAME
 
 ---
 apiVersion: v1
