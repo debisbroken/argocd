@@ -4,4 +4,4 @@ metadata:
   name: my-config
   namespace: testing
 data:
-  NAME: "hey"
+  NAME: ""
