@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: my-express-app
-          image: anonymous2009/my-express-app:build-13
+          image: anonymous2009/my-express-app:build-11
           ports:
             - containerPort: 3030
           env:
