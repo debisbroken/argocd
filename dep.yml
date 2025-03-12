@@ -10,7 +10,7 @@ metadata:
   name: my-express-app
   namespace: testing
 spec:
-  replicas: 1
+  replicas: 12
   selector:
     matchLabels:
       app: my-express-app
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: my-express-app
-          image: anonymous2009/my-express-app:build-3
+          image: anonymous2009/my-express-app:build-13
           ports:
             - containerPort: 3030
           env:
