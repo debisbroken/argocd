@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: testing
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-express-app
+  namespace: testing
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-express-app
+  template:
+    metadata:
+      labels:
+        app: my-express-app
+    spec:
+      containers:
+        - name: my-express-app
+          image: anonymous2009/my-express-app:build-3
+          ports:
+            - containerPort: 3030
+          env:
+            - name: NODE_ENV
+              value: "production"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-express-app-service
+  namespace: testing
+spec:
+  selector:
+    app: my-express-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3030
+  type: ClusterIP  # Change to NodePort or LoadBalancer if needed
